@@ -1,8 +1,8 @@
 # coffeebot
 
-Dieses Projekt wurde im Rahmen eine Masterarbeit erstellt. Es handelt sich um einen mechatronisch erweiterten Roboter, welcher mithilfe eines GUI auf verschiedene Positionen kalibriert werden kann und dorthin geschickt werden kann. Zusätzlich ist auf dem Roboter eine Kaffeemaschine montiert, mit welchen sich der Nutzer in Genuss von frischen Kaffee kommt.
+Dieses Projekt wurde im Rahmen einer Masterarbeit erstellt. Es handelt sich um einen mechatronisch erweiterten Roboter, welcher mithilfe eines GUI auf verschiedene Positionen programmiert werden kann und diese Positionen auf Befehl hin anfährt. Zusätzlich ist auf dem Roboter eine Kaffeemaschine montiert, mit welchen der Nutzer in Genuss von frischen Kaffee kommt.
 
-Dieses System wurde erstellt um eine qualitative Umfrage durchzuführen welche sich mit den Reaktionen von Mitarbeiter gegenüber dem Roboter auseinandersetzt.(Welche Reaktionen zeigen die Mitarbeiter gegenüber dem Roboter in ihrem Arbeitsumfeld und welche Einstellungen, Motive oder kognitiven Konzepte hinterliegen potentiell diesen Reaktionen?)
+Dieses System wurde erstellt um eine qualitative Umfrage durchzuführen, welche sich mit den Reaktionen von Mitarbeiter gegenüber dem Roboter auseinandersetzt.(Welche Reaktionen zeigen die Mitarbeiter gegenüber dem Roboter in ihrem Arbeitsumfeld und welche Einstellungen, Motive oder kognitiven Konzepte hinterliegen potentiell diesen Reaktionen?)
 
 Die Pakete in diesem Repository enthalten sowohl das GUI, als auch die nötigen Treiber den Roboter anzusteuern.
 
