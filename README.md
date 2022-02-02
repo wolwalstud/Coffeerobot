@@ -6,15 +6,15 @@ Dieses System wurde erstellt um eine qualitative Umfrage durchzuführen, welche 
 
 Die Pakete in diesem Repository enthalten sowohl das GUI, als auch die nötigen Treiber den Roboter anzusteuern.
 
-Starten der Anwendung:
+###### Starten der Anwendung:
 
 Ist eine Verbindung zum Roboter hergestellt (roscore muss am Roboter laufen) kann die Anwendung mit folgendem Bashskript gestartet werden:
 
-./Coffeebot.sh
+*./Coffeebot.sh*
 
 Ist kein Roboter vorhanden kann eine Simulation gestartet werden mithilfe des Bashskripts:
 
-./Coffeebot_sim.sh
+*./Coffeebot_sim.sh*
 
 
 ![alt text](https://github.com/wolwalstud/coffeebot/blob/main/startside.png)
