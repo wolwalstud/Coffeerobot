@@ -6,7 +6,7 @@ Dieses System wurde erstellt um eine qualitative Umfrage durchzuführen, welche 
 
 Die Pakete in diesem Repository enthalten sowohl das GUI, als auch die nötigen Treiber den Roboter anzusteuern.
 
-###### Starten der Anwendung:
+#### Starten der Anwendung:
 
 Ist eine Verbindung zum Roboter hergestellt (roscore muss am Roboter laufen) kann die Anwendung mit folgendem Bashskript gestartet werden:
 
