@@ -1,0 +1,25 @@
+<launch>
+
+        <!-- Arguments -->
+        <!--<arg name="hostname" default="10.42.0.1"/>-->
+        <arg name="hostname" default="127.0.1.1"/>
+        <arg name="open_rviz" default="false"/>
+
+        <!-- Robotino3 -->
+        <include file="$(find robotino_node)/launch/robotino_node.launch">
+                <arg name="hostname" value="$(arg hostname)"/>
+        </include>
+
+        <!-- move_base -->
+        <include file="$(find robotino_2dnav)/launch/move_base.launch"/>
+
+        <!-- rviz -->
+        <group if="$(arg open_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+                args="-d $(find robotino_2dnav)/rviz/robotino_2dnav.rviz"/>
+        </group>
+
+        
+</launch>
+
+

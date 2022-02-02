@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="spawn_world" pkg="gazebo_ros" type="spawn_model" args="-sdf
+	    -file $(find robotino_description)/sdf_Files/model.sdf -model walls -x -5 -y -5 -z 0"  output="screen" />
+</launch>

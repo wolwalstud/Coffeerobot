@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:property name="M_PI" value="3.14159"/>
+    <xacro:property name="M_SCALE" value="0.01"/>
+    <xacro:property name="BASE_RADIUS" value="0.18"/>
+    <xacro:property name="BASE_HEIGHT" value="0.05"/>
+    <xacro:property name="BASE_MASS" value="20"/>
+    <!-- robotino_body -->
+    <xacro:macro name="robotino_body">
+        
+       <!-- <link name="base_footprint"/>
+
+        <joint name="base_joint" type="fixed">
+            <parent link="base_footprint"/>
+            <child link="base_link"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        </joint>    -->   
+        
+        <!-- base_link -->
+        <link name="base_link">
+            <inertial>
+                <mass value="${BASE_MASS}" />
+                <origin xyz="0 0 0" />
+                <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+                    iyy="1.0" iyz="0.0"
+                    izz="1.0" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0.035" rpy="0 0 ${M_PI/2}"/>
+                <geometry>
+                    <mesh filename="package://robotino_description/model/Robotino3_SplitMain.dae"
+                        scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 ${BASE_HEIGHT/2}" rpy="0 0 0" />
+                <geometry>
+                    <cylinder radius="${BASE_RADIUS}" length="${BASE_HEIGHT}"/>
+                </geometry>
+            </collision>
+        </link>
+        <gazebo reference="base_link">
+            <material>Gazebo/White</material>
+            <turnGravityOff>false</turnGravityOff>
+        </gazebo>
+        <!-- wheels -->
+        <wheel name="wheel0" parent="base_link">
+            <origin xyz="0.09001 0.1425 0.059154" rpy="0 0 ${M_PI/3}"/>
+            <axis xyz="0 1 0"/>
+        </wheel>
+        <wheel name="wheel1" parent="base_link">
+            <origin xyz="-0.184067 0 0.059154" rpy="0 0 0"/>
+            <axis xyz="0 1 0"/>
+        </wheel>
+        <wheel name="wheel2" parent="base_link">
+            <origin xyz="0.09001 -0.1425 0.059154" rpy="0 0 -${M_PI/3}"/>
+            <axis xyz="0 1 0"/>
+        </wheel>
+        <!-- others -->
+        <command_bridge name="command_bridge" parent="base_link">
+            <origin xyz="-0.05 0 0.13" rpy="0 0 ${M_PI/2}"/>
+        </command_bridge>
+        <anglebracketusb name="anglebracketusb" parent="base_link">
+            <origin xyz="0.008 0 0.137" rpy="0 0 ${M_PI/2}"/>
+        </anglebracketusb>
+        <platform name="platform" parent="base_link">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </platform>
+        <!-- gazebo control -->
+        <gazebo>
+            <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+                <commandTopic>cmd_vel</commandTopic>
+                <odometryTopic>odom</odometryTopic>
+                <odometryFrame>odom</odometryFrame>
+                <odometryRate>20</odometryRate>
+                <robotBaseFrame>base_link</robotBaseFrame>
+                <publishTF>true</publishTF>
+            </plugin>
+            <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
+        </gazebo>
+
+
+
+        <!--<gazebo>
+        <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+            <updateRate>100.0</updateRate>
+            <robotNamespace>/</robotNamespace>
+            <leftFrontJoint>wheel2_joint</leftFrontJoint>
+            <rightFrontJoint>wheel0_joint</rightFrontJoint>
+            <leftRearJoint>wheel1_joint</leftRearJoint>
+            <rightRearJoint>wheel1_joint</rightRearJoint>
+            <wheelSeparation>0.4</wheelSeparation>
+            <wheelDiameter>0.215</wheelDiameter>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <torque>20</torque>
+            <topicName>cmd_vel</topicName>
+            <broadcastTF>true</broadcastTF>
+        </plugin>
+        </gazebo>  -->
+    </xacro:macro>
+</robot>

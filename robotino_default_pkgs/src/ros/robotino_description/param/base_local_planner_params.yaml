@@ -1,0 +1,26 @@
+TrajectoryPlannerROS:
+
+  #Robotino Configuration
+  max_vel_x: 0.2
+  min_vel_x: 0.05
+
+  max_vel_theta: 1.0
+  min_vel_theta: -1.0 #CCW only: 0.1
+  min_in_place_vel_theta: 1.0
+
+  acc_lim_x: 0.4
+  acc_lim_y: 0.4
+  acc_lim_theta: 3.2
+
+  holonomic_robot: true
+
+  # Goal Tolerance Parameters
+  xy_goal_tolerance: 0.10
+  yaw_goal_tolerance: 0.05
+  
+  # Forward Simulation Parameters
+  sim_time: 2
+  vx_samples: 15
+  vy_samples: 15
+  vtheta_samples: 20
+  sim_granularity: 0.15
